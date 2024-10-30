@@ -11,7 +11,7 @@
     <div class="desktop">
         <div class="icon">
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
-            <p>My Bio</p>
+            <p>About</p>
         </div>
         <div class="icon">
             <img src="pics/directory_open_file_mydocs-4.png" alt="Resume Icon">
@@ -33,9 +33,9 @@
             <img src="pics/msn_cool-3.png" alt="MSN Icon">
             <p>MSN</p>
         </div>
-        <div class="icon">
-            <img src="pics/world-4.png" alt="MSN Icon">
-            <p>links</p>
+        <div class="icon" onclick="openLinksWindow()">
+            <img src="pics/world-4.png" alt="World Icon">
+            <p>Links</p>
         </div>
     </div>
 
@@ -47,5 +47,39 @@
         </div>
         <div class="time">01:36 PM</div>
     </div>
+
+    <!-- Links Folder Window -->
+    <div class="project-window" id="linksWindow">
+        <div class="title-bar">
+            <span>Links</span>
+            <button onclick="closeLinksWindow()">X</button>
+        </div>
+        <div class="window-content">
+            <div class="file">
+                <a href="https://github.com" target="_blank">
+                    <img src="pics/github-logo.png" alt="GitHub Icon">
+                    <p>GitHub</p>
+                </a>
+            </div>
+            <div class="file">
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="pics/linkedin.png" alt="LinkedIn Icon">
+                    <p>LinkedIn</p>
+                </a>
+            </div>
+            <div class="file">
+                <a href="https://docs.google.com/document/d/1QZrOCjYTlRM0jEfL8kO4LuCZ_uuMCmwp/edit?usp=sharing&ouid=100118110016511577320&rtpof=true&sd=true" target="_blank">
+                    <img src="pics/docs.png" alt="LinkedIn Icon">
+                    <p>CV</p>
+                </a>
+            </div>
+        </div>
+        <div class="status-bar">
+            <span>2 object(s)</span>
+            <span>25 KB</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
