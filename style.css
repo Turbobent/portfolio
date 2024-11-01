@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'MS Sans Serif', Arial, sans-serif;
-    background-color: #008080;
+    background-color: #008080; /* Teal background */
     color: black;
 }
 
@@ -35,12 +35,12 @@ body, html {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #c0c0c0;
+    background: #c0c0c0; /* Light gray */
     padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 2px solid #808080;
+    border-top: 2px solid #808080; /* Dark border */
 }
 
 .start-button {
@@ -55,46 +55,44 @@ body, html {
 
 .time {
     font-size: 12px;
+    margin-right: 10px;
 }
 
-/* Links Folder Window */
+/* Project Window */
 .project-window {
-    width: 250px;
-    background: #c0c0c0;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 300px;
+    background: white;
     border: 2px solid #000;
     display: none; /* Initially hidden */
-    position: absolute;
-    top: 100px;
-    left: 100px;
     font-size: 12px;
     box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.5);
-    border-style: solid;
-    border-width: 2px;
-    border-color: #000 #ffffff #ffffff #000;
+    z-index: 10;
 }
 
+/* Title Bar */
 .title-bar {
-    background: #000080;
+    background: #000080; /* Dark blue */
     color: white;
-    padding: 3px 8px;
-    font-size: 14px;
+    padding: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: bold;
+    cursor: move; 
     margin: 1px;
 }
 
 .title-bar button {
-    background: #808080;
-    border: 1px solid #404040;
-    color: white;
+    background: transparent;
+    border: none;
+    color: black;
     cursor: pointer;
     font-size: 12px;
-    padding: 0 5px;
-    font-family: inherit;
 }
 
+/* Window Content */
 .window-content {
     padding: 10px;
     display: flex;
@@ -121,14 +119,332 @@ body, html {
     font-size: 10px;
 }
 
-/* Status bar */
+/* Status Bar */
 .status-bar {
     background: #c0c0c0;
     padding: 3px 5px;
     font-size: 10px;
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #808080;
+    border-top: 1px solid #808080; /* Dark border */
     color: #404040;
     font-family: inherit;
 }
+
+/* Close Button Styles */
+.close-button {
+    width: 20px;
+    height: 20px;
+    background-color: #c0c0c0; /* Light gray */
+    color: black;
+    border: 1px solid #404040; /* Dark border */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover Effect for Close Button */
+.close-button:hover {
+    background-color: #a0a0a0; /* Darker gray */
+}
+
+/* Active (Pressed) Effect for Close Button */
+.close-button:active {
+    background-color: #808080; /* Even darker gray when pressed */
+    border: 1px inset #404040; /* Inset border effect */
+}
+/* Minesweeper draggable styling */
+#minesweeperWindow {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 10; /* Ensure it appears above other elements */
+}
+.outer {
+    position: relative;
+    width: 1500px; /* Default width */
+    height: 800px; /* Default height */
+    background-color: lightgrey;
+    border-top: 2px solid #b4b4b4;
+    border-left: 2px solid #b4b4b4;
+    border-bottom: 2px solid #666666;
+    border-right: 2px solid #666666;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1600px), (max-height: 900px) {
+    .outer {
+        max-width: 90vw; /* Responsive width for smaller screens */
+        max-height: 80vh; /* Responsive height for smaller screens */
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Scroll if content overflows */
+    }
+}
+
+   
+  .top {
+    position: absolute;
+    background-color: blue;
+    margin: 5px;
+    height: 25px;
+    width: calc(100% - 10px);
+    display: flex;
+    align-items: center; /* Centers content vertically */
+    padding: 0 5px; /* Adds padding to keep elements away from the edges */
+    box-sizing: border-box;
+  }
+   
+  .top-wrapper {
+    display: flex;
+    justify-content: space-between; /* Pushes items to edges */
+    width: 100%;
+    align-items: center; /* Vertically centers text and buttons */
+  }
+   
+  .top-text p {
+    color: white;
+    margin: 0;
+  }
+   
+  .top-btn {
+    display: flex;
+  }
+   
+  .top-first-btn,
+  .top-second-btn {
+    height: 19px;
+    width: 19px;
+    background-color: lightgray;
+    border-top: 1px solid #ffffff; /* Light top border */
+    border-left: 1px solid #ffffff; /* Light left border */
+    border-bottom: 1px solid #666666; /* Dark bottom border */
+    border-right: 1px solid #666666; /* Dark right border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: black;
+    margin-left: 5px; /* Adds space between buttons */
+  }
+   
+  div p {
+    margin: 0;
+    color: white;
+  }
+   
+  .top-first-btn p,
+  .top-second-btn p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1;
+    color: black;
+    font-weight: bolder;
+  }
+   
+  .top-second-btn {
+    margin-left: 5px;
+  }
+   
+  .inner {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
+    border-top: 1px solid #ffffff; /* Light top border */
+    border-left: 1px solid #ffffff; /* Light left border */
+    border-bottom: 1px solid #666666; /* Dark bottom border */
+    border-right: 1px solid #666666; /* Dark right border */
+  }
+   
+  .inner-inner {
+    position: absolute;
+    bottom: 24px;
+    left: 20px;
+    height: calc(100% - 50px);
+    width: calc(100% - 50px);
+    border-top: 1px solid #666666; /* Light top border */
+    border-left: 1px solid #666666; /* Light left border */
+    border-bottom: 1px solid #ffffff; /* Dark bottom border */
+    border-right: 1px solid #ffffff; /* Dark right border */
+  }
+   
+  .workspace {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+  }
+   
+/* Adjust game board grid dynamically */
+.game-board {
+    display: grid;
+    gap: 2px;
+    padding: 10px;
+    margin: auto;
+}
+
+/* Cell styling */
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: #c0c0c0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #808080;
+}
+
+.cell.mine {
+    background-color: red;
+}
+
+.cell.revealed {
+    background-color: #f0f0f0;
+}
+
+/* Difficulty buttons */
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.difficulty-buttons button {
+    cursor: pointer;
+}
+
+/* Rules modal styling */
+.rules-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid #000;
+    padding: 20px;
+    z-index: 20;
+}
+
+.modal-content h3 {
+    margin: 0 0 10px;
+}
+
+.rules-modal ul {
+    padding: 0;
+    margin: 0;
+    list-style: disc;
+    padding-left: 20px;
+}
+#Solitairebg {
+    background-color: green;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+   
+  .controls {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+   
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+   
+  .stock,
+  .waste,
+  .foundation {
+    width: 80px;
+    height: 120px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: darkgreen;
+    position: relative;
+  }
+   
+  .foundations {
+    display: flex;
+    gap: 10px;
+  }
+   
+  .tableau {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+   
+  .pile {
+    width: 80px;
+    min-height: 120px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: darkgreen;
+    position: relative;
+  }
+   
+  .card {
+    width: 80px;
+    height: 120px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+   
+  .card.face-down {
+    background-color: #000;
+  }
+   
+  .card.red {
+    color: red;
+  }
+   
+  .card.black {
+    color: black;
+  }
+   
+  .card.dragging {
+    opacity: 0.5;
+  }
+   
+  .hidden {
+    display: none;
+  }
+   
+  #game-over-message {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: darkgreen;
+    padding: 20px;
+    border: 2px solid #fff;
+    text-align: center;
+    border-radius: 10px;
+  }
+   
+  #restart-button,
+  #new-game-button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+   
+   

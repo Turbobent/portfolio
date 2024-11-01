@@ -9,33 +9,38 @@
 <body>
     <!-- Desktop with icons -->
     <div class="desktop">
-        <div class="icon">
+        <div class="icon" onclick="">
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
             <p>About</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="">
             <img src="pics/directory_open_file_mydocs-4.png" alt="Resume Icon">
             <p>Resume</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="">
             <img src="pics/mailbox_world-2.png" alt="Mail Icon">
             <p>Mail</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="">
             <img src="pics/directory_closed-4.png" alt="Project Icon">
             <p>Project</p>
         </div>
-        <div class="icon">
+        <div class="icon" onclick="openMineSweeperWindow()">
             <img src="pics/game_mine_1-0.png" alt="Mine Sweeper Icon">
             <p>Mine Sweeper</p>
         </div>
-        <div class="icon">
+      
+        <div class="icon" onclick="">
             <img src="pics/msn_cool-3.png" alt="MSN Icon">
             <p>MSN</p>
         </div>
         <div class="icon" onclick="openLinksWindow()">
             <img src="pics/world-4.png" alt="World Icon">
             <p>Links</p>
+        </div>
+        <div class="icon" onclick="openKabaleWindow()">
+            <img src="pics/game_freecell-2.png" alt="7-kabale Icon">
+            <p>7-kabale</p>
         </div>
     </div>
 
@@ -45,12 +50,12 @@
             <img src="pics/windows_slanted-1.png" alt="Start Icon">
             <span>Start</span>
         </div>
-        <div class="time">01:36 PM</div>
+        <div class="time"></div>
     </div>
 
     <!-- Links Folder Window -->
-    <div class="project-window" id="linksWindow">
-        <div class="title-bar">
+    <div class="project-window" id="linksWindow" style="display: none;">
+        <div class="title-bar" id="titleBar">
             <span>Links</span>
             <button onclick="closeLinksWindow()">X</button>
         </div>
@@ -80,6 +85,92 @@
         </div>
     </div>
 
+    <!-- Mine Sweeper Window -->
+    <section class="container" id="mineSweeperWindow" style="display: none;">
+        <div class="outer">
+            <div class="top">
+                <div class="top-wrapper">
+                    <div class="top-text">
+                        <p>Mine Sweeper</p>
+                    </div>
+                    <div class="difficulty-buttons">
+                        <button onclick="initGame('easy')">Easy</button>
+                        <button onclick="initGame('medium')">Medium</button>
+                        <button onclick="initGame('hard')">Hard</button>
+                    </div>
+                    <div class="top-btn">
+                        <button class="rules-button" onclick="showRules()">?</button>
+                        <button class="close-button" onclick="closeMineSweeperWindow()">X</button>
+                    </div>
+                </div>
+            </div>
+            <div class="inner">
+                <div class="workspace">
+                    <div id="game-board" class="game-board"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 7-Kabale (Klondike Solitaire) Window -->
+    <section class="container" id="kabaleWindow" style="display: none;">
+        <div class="outer">
+            <div class="top">
+                <div class="top-wrapper">
+                    <div class="top-text">
+                        <p>7-Kabale</p>
+                    </div>
+                    <div class="top-btn">
+                        <button class="close-button" onclick="closeKabaleWindow()">X</button>
+                    </div>
+                </div>
+            </div>
+            <div class="inner"id="Solitairebg">
+                <!-- Game Controls -->
+                <div class="controls">
+                    <label for="draw-count">Draw:</label>
+                    <select id="draw-count">
+                        <option value="1">1 Card</option>
+                        <option value="3">3 Cards</option>
+                    </select>
+                    <button id="restart-button">Restart Game</button>
+                </div>
+ 
+                <!-- Stock and Waste Piles -->
+                <div class="top-row">
+                    <div class="stock" id="stock"></div>
+                    <div class="waste" id="waste"></div>
+                    <!-- Foundation Piles -->
+                    <div class="foundations">
+                        <div class="foundation" id="foundation-0"></div>
+                        <div class="foundation" id="foundation-1"></div>
+                        <div class="foundation" id="foundation-2"></div>
+                        <div class="foundation" id="foundation-3"></div>
+                    </div>
+                </div>
+ 
+                <!-- Tableau Piles -->
+                <div class="tableau">
+                    <div class="pile" id="pile-0"></div>
+                    <div class="pile" id="pile-1"></div>
+                    <div class="pile" id="pile-2"></div>
+                    <div class="pile" id="pile-3"></div>
+                    <div class="pile" id="pile-4"></div>
+                    <div class="pile" id="pile-5"></div>
+                    <div class="pile" id="pile-6"></div>
+                </div>
+ 
+                <!-- Game Over Message -->
+                <div id="game-over-message" class="hidden">
+                    <p id="game-over-text"></p>
+                    <button id="new-game-button">New Game</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
     <script src="script.js"></script>
+
 </body>
 </html>
