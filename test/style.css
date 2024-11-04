@@ -1,0 +1,101 @@
+body {
+    background-color: green;
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+   
+  .controls {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+   
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+   
+  .stock,
+  .waste,
+  .foundation {
+    width: 80px;
+    height: 120px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: darkgreen;
+    position: relative;
+  }
+   
+  .foundations {
+    display: flex;
+    gap: 10px;
+  }
+   
+  .tableau {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+   
+  .pile {
+    width: 80px;
+    min-height: 120px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: darkgreen;
+    position: relative;
+  }
+   
+  .card {
+    width: 80px;
+    height: 120px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    position: absolute;
+    background-color: #fff;
+    cursor: pointer;
+    user-select: none;
+  }
+   
+  .card.face-down {
+    background-color: #000;
+  }
+   
+  .card.red {
+    color: red;
+  }
+   
+  .card.black {
+    color: black;
+  }
+   
+  .card.dragging {
+    opacity: 0.5;
+  }
+   
+  .hidden {
+    display: none;
+  }
+   
+  #game-over-message {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: darkgreen;
+    padding: 20px;
+    border: 2px solid #fff;
+    text-align: center;
+    border-radius: 10px;
+  }
+   
+  #restart-button,
+  #new-game-button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+   
+   
