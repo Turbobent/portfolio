@@ -160,26 +160,33 @@ updateTime();
 
 // Function to make a window draggable
 function makeWindowDraggable(windowElement, handleElement) {
-    let offsetX = 0, offsetY = 0, isDragging = false;
+  let offsetX = 0, offsetY = 0, isDragging = false;
 
-    handleElement.addEventListener("mousedown", (e) => {
-        isDragging = true;
-        offsetX = e.clientX - windowElement.offsetLeft;
-        offsetY = e.clientY - windowElement.offsetTop;
-        document.addEventListener("mousemove", onMouseMove);
-    });
+  if (!handleElement) {
+      console.error("Handle element is null");
+      return;
+  }
 
-    document.addEventListener("mouseup", () => {
-        isDragging = false;
-        document.removeEventListener("mousemove", onMouseMove);
-    });
+  handleElement.addEventListener("mousedown", (e) => {
+      console.log("mousedown on handleElement");
+      isDragging = true;
+      offsetX = e.clientX - windowElement.offsetLeft;
+      offsetY = e.clientY - windowElement.offsetTop;
+      document.addEventListener("mousemove", onMouseMove);
+  });
 
-    function onMouseMove(e) {
-        if (!isDragging) return;
-        windowElement.style.left = `${e.clientX - offsetX}px`;
-        windowElement.style.top = `${e.clientY - offsetY}px`;
-    }
+  document.addEventListener("mouseup", () => {
+      isDragging = false;
+      document.removeEventListener("mousemove", onMouseMove);
+  });
+
+  function onMouseMove(e) {
+      if (!isDragging) return;
+      windowElement.style.left = `${e.clientX - offsetX}px`;
+      windowElement.style.top = `${e.clientY - offsetY}px`;
+  }
 }
+
 
 // Initialize draggable functionality for both windows
 makeWindowDraggable(document.getElementById("linksWindow"), document.getElementById("titleBar"));
@@ -223,6 +230,7 @@ class Card {
     
         if (this.faceUp) {
             const imgPath = `pics/cards/${this.suit}_${this.rank}.png`;
+            console.log(imgPath);
             cardElement.style.backgroundImage = `url('${imgPath}')`;
             cardElement.classList.add(cardElement.dataset.color);
         } else {
