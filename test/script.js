@@ -40,11 +40,12 @@ class Card {
             const imgPath = `../pics/cards/${this.suit}_${this.rank}.png`;
             cardElement.style.backgroundImage = `url('${imgPath}')`;
             cardElement.classList.add(cardElement.dataset.color);
+            console.log(imgPath);
         } else {
             cardElement.classList.add("face-down");
             cardElement.style.backgroundImage = `url('../pics/cards/cardBack.png')`;
         }
-    
+
         return cardElement;
     }
   }
