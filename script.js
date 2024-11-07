@@ -258,38 +258,39 @@ class Card {
     GameState.waste = [];
     GameState.foundations = [[], [], [], []];
     GameState.tableau = [[], [], [], [], [], [], []];
-   
+
     // Get draw count from select
     const drawSelect = document.getElementById("draw-count");
     GameState.drawCount = parseInt(drawSelect.value, 10);
-   
+
     // Create and shuffle the deck
     const suits = ["hearts", "diamonds", "clubs", "spades"];
     const deck = [];
     for (const suit of suits) {
-      for (let rank = 1; rank <= 13; rank++) {
-        deck.push(new Card(suit, rank));
-      }
+        for (let rank = 1; rank <= 13; rank++) {
+            deck.push(new Card(suit, rank));
+        }
     }
     shuffle(deck);
-   
+
     // Deal to tableau
     let cardIndex = 0;
     for (let i = 0; i < 7; i++) {
-      for (let j = i; j < 7; j++) {
-        const card = deck[cardIndex];
-        card.faceUp = i === j;
-        GameState.tableau[j].push(card);
-        cardIndex++;
-      }
+        for (let j = i; j < 7; j++) {
+            const card = deck[cardIndex];
+            card.faceUp = i === j;
+            GameState.tableau[j].push(card);
+            cardIndex++;
+        }
     }
-   
+
     // Remaining cards go to stock
     GameState.stock = deck.slice(cardIndex);
-   
+
     // Render the game
     renderGame();
-  }
+    updateTableauLayout(); // Update layout here after initial render
+}
    
   // Shuffle function using Fisher-Yates algorithm
   function shuffle(array) {
@@ -468,54 +469,51 @@ class Card {
     const targetPileElement = event.currentTarget;
     const targetPileIndex = parseInt(targetPileElement.id.split("-")[1], 10);
     const targetPile = GameState.tableau[targetPileIndex];
-   
+
     // Get target card if any
     const targetCardElement = targetPileElement.querySelector(".card:last-child");
     let targetCard = null;
     if (targetCardElement) {
-      const targetCardIndex = parseInt(targetCardElement.dataset.cardIndex, 10);
-      targetCard = targetPile[targetCardIndex];
+        const targetCardIndex = parseInt(targetCardElement.dataset.cardIndex, 10);
+        targetCard = targetPile[targetCardIndex];
     }
-   
+
     // Get dragged card data
     const data = JSON.parse(event.dataTransfer.getData("text/plain"));
     let movingCard;
     let movingCards = [];
-   
+
     if (data.pileType === "tableau") {
-      movingCard = GameState.tableau[data.pileIndex][data.cardIndex];
-      movingCards = GameState.tableau[data.pileIndex].slice(data.cardIndex);
+        movingCard = GameState.tableau[data.pileIndex][data.cardIndex];
+        movingCards = GameState.tableau[data.pileIndex].slice(data.cardIndex);
     } else if (data.pileType === "waste") {
-      movingCard = GameState.waste[data.cardIndex];
-      movingCards = GameState.waste.slice(data.cardIndex);
+        movingCard = GameState.waste[data.cardIndex];
+        movingCards = GameState.waste.slice(data.cardIndex);
     } else {
-      return; // Invalid pile type
+        return; // Invalid pile type
     }
-   
+
     // Validate move according to game rules
     if (isValidTableauMove(movingCard, targetCard, targetPile)) {
-      // Move the cards
-      if (data.pileType === "tableau") {
-        GameState.tableau[data.pileIndex].splice(
-          data.cardIndex,
-          movingCards.length
-        );
-        targetPile.push(...movingCards);
-        // If source pile has a face-down card, flip it
-        const sourcePileArray = GameState.tableau[data.pileIndex];
-        if (
-          sourcePileArray.length > 0 &&
-          !sourcePileArray[sourcePileArray.length - 1].faceUp
-        ) {
-          sourcePileArray[sourcePileArray.length - 1].faceUp = true;
+        // Move the cards
+        if (data.pileType === "tableau") {
+            GameState.tableau[data.pileIndex].splice(data.cardIndex, movingCards.length);
+            targetPile.push(...movingCards);
+
+            // If source pile has a face-down card, flip it
+            const sourcePileArray = GameState.tableau[data.pileIndex];
+            if (sourcePileArray.length > 0 && !sourcePileArray[sourcePileArray.length - 1].faceUp) {
+                sourcePileArray[sourcePileArray.length - 1].faceUp = true;
+            }
+        } else if (data.pileType === "waste") {
+            GameState.waste.splice(data.cardIndex, movingCards.length);
+            targetPile.push(...movingCards);
         }
-      } else if (data.pileType === "waste") {
-        GameState.waste.splice(data.cardIndex, movingCards.length);
-        targetPile.push(...movingCards);
-      }
-      renderGame();
+        
+        renderGame(); // Re-render to reflect changes
+        updateTableauLayout(); // Ensure layout is updated here
     }
-  }
+}
    
   // Handler for dropping on foundation piles
   function onDropOnFoundation(event) {
@@ -688,4 +686,25 @@ class Card {
   // Initialize the game on page load
   window.onload = initGame;
    
+  document.addEventListener("DOMContentLoaded", function () {
+    const tableauPiles = document.querySelectorAll('.tableau .pile');
+    
+    tableauPiles.forEach(pile => {
+        const cards = pile.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            card.style.top = `${index * 30}px`; // Adjust the spacing value (e.g., 30px) as needed
+        });
+    });
+});
 
+// Function to call after adding new cards to ensure they are spaced correctly
+function updateTableauLayout() {
+  const tableauPiles = document.querySelectorAll('.tableau-pile');
+  tableauPiles.forEach((pile, index) => {
+      const cards = pile.querySelectorAll('.card');
+      cards.forEach((card, cardIndex) => {
+          card.style.top = `${cardIndex * 30}px`; // Adjust vertical spacing
+          card.style.left = "0px"; // Keep them aligned horizontally
+      });
+  });
+}
