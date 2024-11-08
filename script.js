@@ -101,57 +101,59 @@ function calculateNeighborMines(rows, cols) {
 
 // Update the revealCell function to accept rows, cols, and mines parameters for the win condition check
 function revealCell(row, col, rows, cols, mines) {
-    const cell = board[row][col];
-    if (cell.revealed) return;
-    cell.revealed = true;
-    revealedCells++;
+  const cell = board[row][col];
+  if (cell.revealed || cell.mine) return; // Avoid processing if already revealed or a mine
 
-    const cellElement = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
-    cellElement.classList.add("revealed");
-    
-    if (cell.mine) {
-        cellElement.classList.add("mine");
-        endGame(false); // Game Over
-        return;
-    }
+  cell.revealed = true;
+  revealedCells++;
 
-    if (cell.neighborMines > 0) {
-        cellElement.textContent = cell.neighborMines;
-    } else {
-        for (let i = -1; i <= 1; i++) {
-            for (let j = -1; j <= 1; j++) {
-                const nr = row + i;
-                const nc = col + j;
-                if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
-                    revealCell(nr, nc, rows, cols, mines);
-                }
-            }
-        }
-    }
+  const cellElement = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+  cellElement.classList.add("revealed");
 
-    // Check for win condition
-    if (revealedCells === rows * cols - mines) {
-        endGame(true); // Win
-    }
+  if (cell.mine) {
+      cellElement.classList.add("mine");
+      endGame(false); // Game Over
+      return;
+  }
+
+  if (cell.neighborMines > 0) {
+      cellElement.textContent = cell.neighborMines;
+  } else {
+      // Reveal surrounding cells recursively
+      for (let i = -1; i <= 1; i++) {
+          for (let j = -1; j <= 1; j++) {
+              const nr = row + i;
+              const nc = col + j;
+              if (nr >= 0 && nr < rows && nc >= 0 && nc < cols) {
+                  revealCell(nr, nc, rows, cols, mines);
+              }
+          }
+      }
+  }
+
+  // Check for win condition
+  if (revealedCells === rows * cols - mines) {
+      endGame(true); // Win
+  }
 }
 
 // End game function
 function endGame(won) {
-    const message = won ? "You Win!" : "Game Over!";
-    alert(message);
-    closeMineSweeperWindow(); // Close the window after the game
+  const message = won ? "You Win!" : "Game Over!";
+  alert(message);
+  closeMineSweeperWindow(); // Close the window after the game
 }
 
 // Update time in 12-hour format
 function updateTime() {
-    const timeElement = document.querySelector(".time");
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    const ampm = hours >= 12 ? "PM" : "AM";
-    hours = hours % 12 || 12; // Convert 0 to 12 for 12-hour clock
+  const timeElement = document.querySelector(".time");
+  const now = new Date();
+  let hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12; // Convert 0 to 12 for 12-hour clock
 
-    timeElement.textContent = `${hours}:${minutes} ${ampm}`;
+  timeElement.textContent = `${hours}:${minutes} ${ampm}`;
 }
 
 // Set interval to update time every second
@@ -168,7 +170,6 @@ function makeWindowDraggable(windowElement, handleElement) {
   }
 
   handleElement.addEventListener("mousedown", (e) => {
-      console.log("mousedown on handleElement");
       isDragging = true;
       offsetX = e.clientX - windowElement.offsetLeft;
       offsetY = e.clientY - windowElement.offsetTop;
@@ -188,9 +189,11 @@ function makeWindowDraggable(windowElement, handleElement) {
 }
 
 
+
 // Initialize draggable functionality for both windows
 makeWindowDraggable(document.getElementById("linksWindow"), document.getElementById("titleBar"));
 makeWindowDraggable(document.getElementById("mineSweeperWindow"), document.getElementById("#mineSweeperWindow .top"));
+makeWindowDraggable(document.getElementById("kabaleWindow"), document.getElementById("#kabaleWindow .top"));
 // script.js
  
 // Card representation
