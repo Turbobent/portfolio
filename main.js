@@ -7,14 +7,10 @@ function closeLinksWindow() {
     document.getElementById("linksWindow").style.display = "none";
 }
 
-// main.js or a separate file with common functions
-
 function openMineSweeperWindow() {
   document.getElementById('mineSweeperWindow').style.display = 'block';
   document.getElementById('kabaleWindow').style.display = 'none';
 }
-
-
 
 
 function closeMineSweeperWindow() {
@@ -60,7 +56,6 @@ function makeWindowDraggable(windowElement, handleElement) {
 
 // Initialize draggable functionality for both windows
 makeWindowDraggable(document.getElementById("linksWindow"), document.getElementById("titleBar"));
-makeWindowDraggable(document.getElementById("mineSweeperWindow"), document.getElementById("#mineSweeperWindow .top"));
+makeWindowDraggable(document.getElementById("mineSweeperWindow"), document.getElementById("#mineSweeperWindow .top-wrapper"));
 makeWindowDraggable(document.getElementById("kabaleWindow"), document.getElementById("#kabaleWindow .top"));
-// script.js
  
