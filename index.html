@@ -11,20 +11,20 @@
     <div class="desktop">
         <div class="icon" onclick="">
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
-            <p>About</p>
+            <p>About me</p>
         </div>
         <div class="icon" onclick="">
             <img src="pics/directory_open_file_mydocs-4.png" alt="Resume Icon">
             <p>Resume</p>
         </div>
-        <div class="icon" onclick="">
+        <div class="icon" onclick="openMailWindow()">
             <img src="pics/mailbox_world-2.png" alt="Mail Icon">
             <p>Mail</p>
         </div>
-        <div class="icon" onclick="">
+        <div class="icon" onclick="openReposWindow()">
             <img src="pics/directory_closed-4.png" alt="Project Icon">
-            <p>Project</p>
-        </div>
+            <p>Repos</p>
+        </div>        
         <div class="icon" onclick="openMineSweeperWindow()">
             <img src="pics/game_mine_1-0.png" alt="Mine Sweeper Icon">
             <p>Mine Sweeper</p>
@@ -82,6 +82,27 @@
         <div class="status-bar">
             <span>3 object(s)</span>
             <span>25 KB</span>
+        </div>
+    </div>
+     <!-- Resume Window -->
+     <div class="mail-window" id="mailWindow" style="display: none;">
+    </div>
+
+    <!-- mail Window -->
+    <div class="mail-window" id="mailWindow" style="display: none;">
+    </div>
+
+    <!-- Repositories Window -->
+    <div class="project-window" id="reposWindow" style="display: none;">
+        <div class="title-bar">
+            <span>My GitHub Repos</span>
+            <button onclick="closeReposWindow()">X</button>
+        </div>
+        <div class="window-content" id="reposList">
+            <!-- Repos will be populated here -->
+        </div>
+        <div class="status-bar">
+            <span id="repoCount">0 repository(ies)</span>
         </div>
     </div>
 
@@ -170,8 +191,9 @@
     </section>
 
     <!-- Scripts -->
-    <script src="main.js"></script> 
-    <script src="minesweeper.js"></script>
-    <script src="solitaire.js"></script>
+    <script src="js/main.js"></script> 
+    <script src="js/minesweeper.js"></script>
+    <script src="js/solitaire.js"></script>
+    <script src="js/getRepos.js"></script>
 </body>
 </html>

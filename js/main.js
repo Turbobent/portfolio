@@ -12,7 +12,23 @@ function openMineSweeperWindow() {
   document.getElementById('kabaleWindow').style.display = 'none';
 }
 
+function openReposWindow() {
+  document.getElementById("reposWindow").style.display = "block";
+  fetchRepos();
+}
 
+function closeReposWindow() {
+  document.getElementById("reposWindow").style.display = "none";
+}
+
+function openMailWindow() {
+  document.getElementById("mailWindow").style.display = "block";
+  fetchRepos();
+}
+
+function closeMailWindow() {
+  document.getElementById("mailWindow").style.display = "none";
+}
 function closeMineSweeperWindow() {
     document.getElementById("mineSweeperWindow").style.display = "none";
 }

@@ -457,4 +457,41 @@ body, html {
     font-size: 16px;
   }
    
-   
+  .project-window {
+    width: auto;
+    border: 2px solid black;
+    background-color: #c3c3c3;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    display: none;
+}
+
+
+.window-content {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.status-bar {
+    background-color: #c3c3c3;
+    padding: 5px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.repo-item {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.repo-item a {
+    color: #000080;
+    text-decoration: none;
+}
+
+.repo-item a:hover {
+    text-decoration: underline;
+}
