@@ -85,12 +85,34 @@
         </div>
     </div>
      <!-- Resume Window -->
-     <div class="mail-window" id="mailWindow" style="display: none;">
+     <div class="resume-window" id="resumeWindow" style="display: none;">
     </div>
 
-    <!-- mail Window -->
-    <div class="mail-window" id="mailWindow" style="display: none;">
+   <!-- Mail Window -->
+<div class="mail-window" id="mailWindow" style="display: none;">
+    <div class="title-bar">
+        <span>Mail</span>
+        <button onclick="closeMailWindow()">X</button>
     </div>
+    <div class="window-content">
+        <form id="mailForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <div class="form-actions">
+                <button type="button" onclick="sendMail()">Send</button>
+                <button type="button" onclick="resetMailForm()">Reset</button>
+            </div>
+        </form>
+    </div>
+    <div class="status-bar">
+        <span>Ready to send your message</span>
+    </div>
+</div>
+
 
     <!-- Repositories Window -->
     <div class="project-window" id="reposWindow" style="display: none;">

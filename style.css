@@ -495,3 +495,78 @@ body, html {
 .repo-item a:hover {
     text-decoration: underline;
 }
+
+
+.mail-window {
+  position: absolute;
+  width: 400px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 3px 3px #808080;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.title-bar {
+  background: #000080;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.title-bar button {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.window-content {
+  padding: 10px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: 1px solid #808080;
+  background: #fff;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+form button {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  font-size: 12px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.status-bar {
+  background: #808080;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

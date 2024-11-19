@@ -41,6 +41,17 @@ function closeKabaleWindow() {
     document.getElementById("kabaleWindow").style.display = "none";
 }
 
+function openMailWindow() {
+  document.getElementById('mailWindow').style.display = 'block';
+}
+
+function closeMailWindow() {
+  document.getElementById('mailWindow').style.display = 'none';
+}
+
+function resetMailForm() {
+  document.getElementById('mailForm').reset();
+}
 
 // Function to make a window draggable
 function makeWindowDraggable(windowElement, handleElement) {
@@ -75,3 +86,17 @@ makeWindowDraggable(document.getElementById("linksWindow"), document.getElementB
 makeWindowDraggable(document.getElementById("mineSweeperWindow"), document.getElementById("#mineSweeperWindow .top-wrapper"));
 makeWindowDraggable(document.getElementById("kabaleWindow"), document.getElementById("#kabaleWindow .top"));
  
+
+
+function sendMail() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  if (name && email && message) {
+      alert(`Message sent!\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+      closeMailWindow();
+  } else {
+      alert('Please fill in all fields.');
+  }
+}
