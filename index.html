@@ -13,7 +13,7 @@
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
             <p>About me</p>
         </div>
-        <div class="icon" onclick="">
+        <div class="icon" onclick="openResumeWindow()">
             <img src="pics/directory_open_file_mydocs-4.png" alt="Resume Icon">
             <p>Resume</p>
         </div>
@@ -72,21 +72,31 @@
                     <p>LinkedIn</p>
                 </a>
             </div>
-            <div class="file">
-                <a href="https://docs.google.com" target="_blank">
-                    <img src="pics/docs.png" alt="CV Icon">
-                    <p>CV</p>
-                </a>
-            </div>
         </div>
         <div class="status-bar">
             <span>3 object(s)</span>
             <span>25 KB</span>
         </div>
     </div>
-     <!-- Resume Window -->
-     <div class="resume-window" id="resumeWindow" style="display: none;">
+    <!-- Resume Window -->
+<div class="resume-window" id="resumeWindow" style="display: none;">
+    <div class="title-bar">
+        <span>Resume</span>
+        <button onclick="closeResumeWindow()">X</button>
     </div>
+    <div class="window-content">
+        <div class="section">
+            <h3>Open CV</h3>
+            <a href="https://docs.google.com/document/d/1QZrOCjYTlRM0jEfL8kO4LuCZ_uuMCmwp/edit?usp=sharing&ouid=100118110016511577320&rtpof=true&sd=true" target="_blank">
+                <img src="pics/docs.png" id="cvImg" alt="CV Icon">
+            </a>
+        </div>
+    </div>
+    <div class="status-bar">
+        <span>Ready to explore your qualifications</span>
+    </div>
+</div>
+
 
    <!-- Mail Window -->
 <div class="mail-window" id="mailWindow" style="display: none;">

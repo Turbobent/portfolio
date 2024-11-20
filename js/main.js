@@ -17,6 +17,14 @@ function openReposWindow() {
   fetchRepos();
 }
 
+function openResumeWindow() {
+  document.getElementById('resumeWindow').style.display = 'block';
+}
+
+function closeResumeWindow() {
+  document.getElementById('resumeWindow').style.display = 'none';
+}
+
 function closeReposWindow() {
   document.getElementById("reposWindow").style.display = "none";
 }
