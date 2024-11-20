@@ -570,6 +570,8 @@ form button {
   justify-content: space-between;
   align-items: center;
 }
+
+/* resume starts */
 .resume-window {
   position: absolute;
   width: 500px;
@@ -604,4 +606,93 @@ form button {
 }
 #cvImg{
   height: 50px;
+}
+/* resume ends */
+
+/* about me starts */
+.about-window {
+  position: absolute;
+  width: 400px;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 3px 3px #808080;
+  font-family: "MS Sans Serif", sans-serif;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.title-bar {
+  background: #000080;
+  color: white;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.title-bar button {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.tab-buttons {
+  display: flex;
+  background: #c0c0c0;
+  border-bottom: 1px solid #000;
+  height: 30px;
+
+}
+
+.tab-button {
+  flex: 1;
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  border-bottom: none;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-button.active {
+  background: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  font-weight: bold;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block !important; 
+}
+
+.tab-content p,
+.tab-content ul {
+    color: black; /* Ensure paragraph and list text are black */
+}
+.bio-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.status-bar {
+  background: #c0c0c0;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.status-bar button {
+  background: #c0c0c0;
+  border: 1px solid #808080;
+  padding: 2px 10px;
+  cursor: pointer;
+  font-size: 12px;
 }

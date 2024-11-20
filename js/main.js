@@ -40,11 +40,33 @@ function closeMailWindow() {
 function closeMineSweeperWindow() {
     document.getElementById("mineSweeperWindow").style.display = "none";
 }
+function openAboutWindow() {
+  document.getElementById('aboutWindow').style.display = 'block';
+}
+
+function closeAboutWindow() {
+  document.getElementById('aboutWindow').style.display = 'none';
+}
+
+function openTab(event, tabName) {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  // Remove active class from all buttons and content
+  tabButtons.forEach(button => button.classList.remove('active'));
+  tabContents.forEach(content => content.classList.remove('active'));
+
+  // Add active class to the clicked button and corresponding content
+  event.currentTarget.classList.add('active');
+  document.getElementById(tabName).classList.add('active');
+}
+
 
 function openKabaleWindow() {
   document.getElementById('kabaleWindow').style.display = 'block';
   document.getElementById('mineSweeperWindow').style.display = 'none';
 }
+
 function closeKabaleWindow() {
     document.getElementById("kabaleWindow").style.display = "none";
 }

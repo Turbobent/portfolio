@@ -9,7 +9,7 @@
 <body>
     <!-- Desktop with icons -->
     <div class="desktop">
-        <div class="icon" onclick="">
+        <div class="icon" onclick="openAboutWindow()">
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
             <p>About me</p>
         </div>
@@ -97,6 +97,50 @@
     </div>
 </div>
 
+<!-- About Me Window -->
+<div class="about-window" id="aboutWindow" style="display: none;">
+    <div class="title-bar">
+        <span>My Bio</span>
+        <button onclick="closeAboutWindow()">X</button>
+    </div>
+    <div class="window-content">
+        <!-- Tab Buttons -->
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'general')">General</button>
+            <button class="tab-button" onclick="openTab(event, 'technology')">Technology</button>
+            <button class="tab-button" onclick="openTab(event, 'hobby')">Hobby</button>
+        </div>
+        <!-- Tab Content -->
+        <div class="tab-content active" id="general">
+            <h3>Objective:</h3>
+            <p>har lavet mest med backend men kan godt frontend</p>
+            <h3>Information:</h3>
+            <p>Kasper V.N.<br>30562188</p>
+            <h3>lokation:</h3>
+            <p>Randers<br>leder efter læreplads<br>On-Site</p>
+        </div>
+        <div class="tab-content" id="technology" style="display: none;">
+            <h3>Technical Skills:</h3>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Laravel, C# blazor</li>
+                <li>Version Control: Git, GitHub</li>
+            </ul>
+        </div>
+        <div class="tab-content" id="hobby" style="display: none;">
+            <h3>Hobbies:</h3>
+            <ul>
+                <li>Gaming og fitness</li>
+                <li> prøver at lære hvordan man invistering</li>
+                <li>kan godt lide at se film og serier</li>
+            </ul>
+        </div>        
+    </div>
+    <div class="status-bar">
+        <button class="ok-button" onclick="closeAboutWindow()">OK</button>
+        <button class="cancel-button" onclick="closeAboutWindow()">Cancel</button>
+    </div>
+</div>
 
    <!-- Mail Window -->
 <div class="mail-window" id="mailWindow" style="display: none;">
