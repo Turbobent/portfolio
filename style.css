@@ -563,7 +563,7 @@ form button {
 
 .status-bar {
   background: #808080;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 5px;
   font-size: 12px;
   display: flex;
