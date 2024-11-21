@@ -61,6 +61,13 @@ function openTab(event, tabName) {
   document.getElementById(tabName).classList.add('active');
 }
 
+function openMsnWindow() {
+  document.getElementById('msnWindow').style.display = 'block';
+}
+
+function closeMsnWindow() {
+  document.getElementById('msnWindow').style.display = 'none';
+}
 
 function openKabaleWindow() {
   document.getElementById('kabaleWindow').style.display = 'block';

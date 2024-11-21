@@ -30,7 +30,7 @@
             <p>Mine Sweeper</p>
         </div>
       
-        <div class="icon" onclick="">
+        <div class="icon" onclick="openMsnWindow()">
             <img src="pics/msn_cool-3.png" alt="MSN Icon">
             <p>MSN</p>
         </div>
@@ -100,7 +100,7 @@
 <!-- About Me Window -->
 <div class="about-window" id="aboutWindow" style="display: none;">
     <div class="title-bar">
-        <span>My Bio</span>
+        <span>Om mig</span>
         <button onclick="closeAboutWindow()">X</button>
     </div>
     <div class="window-content">
@@ -113,7 +113,7 @@
         <!-- Tab Content -->
         <div class="tab-content active" id="general">
             <h3>Objective:</h3>
-            <p>har lavet mest med backend men kan godt frontend</p>
+            <p>har lavet mest med backend men kan godt noget frontend</p>
             <h3>Information:</h3>
             <p>Kasper V.N.<br>30562188</p>
             <h3>lokation:</h3>
@@ -139,6 +139,40 @@
     <div class="status-bar">
         <button class="ok-button" onclick="closeAboutWindow()">OK</button>
         <button class="cancel-button" onclick="closeAboutWindow()">Cancel</button>
+    </div>
+</div>
+<div class="msn-window" id="msnWindow" style="display: none;">
+    <div class="title-bar">
+        <span>MSN</span>
+        <div class="title-bar-controls">
+            <button class="btn">_</button>
+            <button class="btn">□</button>
+            <button onclick="closeMsnWindow()">X</button>
+        </div>
+    </div>
+  <!-- Msn Window -->
+    <div class="msn-content">
+        <div class="chat-header">
+            <p>Username: Anonymous</p>
+            <button class="btn">change username</button>
+            <p>To: everyone</p>
+        </div>
+        <div class="chat-window">
+            <p>&lt;Anonymous&gt;: f</p>
+            <p>&lt;Anonymous&gt;: f</p>
+            <p>&lt;Anonymous&gt;: q</p>
+            <p>&lt;Anonymous&gt;: i</p>
+            <p>&lt;Anonymous&gt;: hello</p>
+            <p>&lt;Anonymous&gt;: f</p>
+            <p>&lt;yxf&gt;: pyxc</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Enter your message here..." />
+            <button class="send-btn">Send</button>
+        </div>
+        <div class="status-bar">
+            <p>Last message received on 2024-11-21</p>
+        </div>
     </div>
 </div>
 

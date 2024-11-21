@@ -696,3 +696,85 @@ form button {
   cursor: pointer;
   font-size: 12px;
 }
+
+/* msn starts */
+
+.msn-window {
+  width: 400px;
+  border: 2px solid #000;
+  background-color: #c0c0c0;
+  margin: 50px auto;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.title-bar {
+  background-color: #000080;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.title-bar-controls .btn {
+  width: 20px;
+  height: 20px;
+  background-color: #c0c0c0;
+  border: 1px solid #808080;
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.msn-content {
+  padding: 8px;
+}
+
+.chat-header {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.chat-window {
+  background-color: #fff;
+  border: 1px solid #000;
+  height: 150px;
+  overflow-y: scroll;
+  padding: 4px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 4px;
+  border: 1px solid #000;
+}
+
+.send-btn {
+  padding: 4px 12px;
+  background-color: #c0c0c0;
+  border: 1px solid #808080;
+  cursor: pointer;
+}
+
+.status-bar {
+  font-size: 10px;
+  text-align: right;
+}
+div p{
+  color: #000;
+}
