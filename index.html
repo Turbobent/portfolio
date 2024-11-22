@@ -11,11 +11,11 @@
     <div class="desktop">
         <div class="icon" onclick="openAboutWindow()">
             <img src="pics/computer_explorer-5.png" alt="My Bio Icon">
-            <p>About me</p>
+            <p>Om mig</p>
         </div>
         <div class="icon" onclick="openResumeWindow()">
             <img src="pics/directory_open_file_mydocs-4.png" alt="Resume Icon">
-            <p>Resume</p>
+            <p>CV</p>
         </div>
         <div class="icon" onclick="openMailWindow()">
             <img src="pics/mailbox_world-2.png" alt="Mail Icon">
@@ -27,7 +27,7 @@
         </div>        
         <div class="icon" onclick="openMineSweeperWindow()">
             <img src="pics/game_mine_1-0.png" alt="Mine Sweeper Icon">
-            <p>Mine Sweeper</p>
+            <p>Minesweeper</p>
         </div>
       
         <div class="icon" onclick="openMsnWindow()">
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="status-bar">
-            <span>3 object(s)</span>
+            <span>2 object(s)</span>
             <span>25 KB</span>
         </div>
     </div>
@@ -115,7 +115,7 @@
             <h3>Objective:</h3>
             <p>har lavet mest med backend men kan godt noget frontend</p>
             <h3>Information:</h3>
-            <p>Kasper V.N.<br>30562188</p>
+            <p>Kasper V.N.<br>30562188<br>kvn325@live.dk</p>
             <h3>lokation:</h3>
             <p>Randers<br>leder efter læreplads<br>On-Site</p>
         </div>
@@ -176,7 +176,7 @@
     </div>
 </div>
 
-   <!-- Mail Window -->
+<!-- Mail Window -->
 <div class="mail-window" id="mailWindow" style="display: none;">
     <div class="title-bar">
         <span>Mail</span>
@@ -184,10 +184,12 @@
     </div>
     <div class="window-content">
         <form id="mailForm">
-            <label for="name">Name:</label>
+            <label for="name">Navn:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+            <label for="firma">Firma:</label>
+            <input type="firma" id="firma" name="firma">
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
             <div class="form-actions">
