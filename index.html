@@ -141,30 +141,27 @@
         <button class="cancel-button" onclick="closeAboutWindow()">Cancel</button>
     </div>
 </div>
-<div class="msn-window" id="msnWindow" style="display: none;">
+
+  <!-- Msn Window -->
+  <div class="msn-window" id="msnWindow" style="display: none;">
     <div class="title-bar">
         <span>MSN</span>
         <div class="title-bar-controls">
             <button class="btn">_</button>
             <button class="btn">□</button>
-            <button onclick="closeMsnWindow()">X</button>
+            <button class="btn" onclick="closeMsnWindow()">X</button>
         </div>
     </div>
-  <!-- Msn Window -->
     <div class="msn-content">
         <div class="chat-header">
             <p>Username: Anonymous</p>
-            <button class="btn">change username</button>
+            <button class="btn" onclick="changeUsername()">Change name</button>
             <p>To: everyone</p>
         </div>
         <div class="chat-window">
-            <p>&lt;Anonymous&gt;: f</p>
-            <p>&lt;Anonymous&gt;: f</p>
-            <p>&lt;Anonymous&gt;: q</p>
-            <p>&lt;Anonymous&gt;: i</p>
-            <p>&lt;Anonymous&gt;: hello</p>
-            <p>&lt;Anonymous&gt;: f</p>
-            <p>&lt;yxf&gt;: pyxc</p>
+            <p>&lt;Anonymous&gt;: Hello!</p>
+            <p>&lt;Anonymous&gt;: How are you?</p>
+            <p>&lt;User2&gt;: I'm good!</p>
         </div>
         <div class="chat-input">
             <input type="text" placeholder="Enter your message here..." />
@@ -306,5 +303,7 @@
     <script src="js/minesweeper.js"></script>
     <script src="js/solitaire.js"></script>
     <script src="js/getRepos.js"></script>
+    <script src="js/mail.js"></script>
+    <script src="js/msn.js"></script>
 </body>
 </html>
