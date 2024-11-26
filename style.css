@@ -720,18 +720,19 @@ form button {
 
 .title-bar-controls {
   display: flex;
-  gap: 4px;
+  gap: 5px; /* Space between buttons */
 }
 
 .title-bar-controls .btn {
-  width: 20px;
-  height: 20px;
-  background-color: #c0c0c0;
-  border: 1px solid #808080;
-  color: #000;
-  font-size: 12px;
-  text-align: center;
-  line-height: 20px;
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+  width: 30px; /* Set button width */
+  height: 30px; /* Set button height */
+  font-size: 16px; /* Adjust text size */
+  font-weight: bold; /* Make the text bold */
+  border: 1px solid black; /* Optional: button border */
+  background-color: #e0e0e0; /* Button background color */
   cursor: pointer;
 }
 
