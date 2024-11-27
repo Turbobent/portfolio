@@ -413,14 +413,8 @@ body, html {
     background-position: center;
   }
   
-  .face-down {
-    background-color: gray;
-  }
   
-   
-  .card.face-down {
-    background-color: #000;
-  }
+  
    
   .card.red {
     color: red;

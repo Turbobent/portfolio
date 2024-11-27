@@ -26,27 +26,30 @@ class Card {
    
     // Creates the HTML element for the card
     createElement() {
-        const cardElement = document.createElement("div");
-        cardElement.classList.add("card");
-        cardElement.dataset.suit = this.suit;
-        cardElement.dataset.rank = this.rank;
-        cardElement.dataset.color = this.suit === "hearts" || this.suit === "diamonds" ? "red" : "black";
-        cardElement.draggable = this.faceUp;
-    
-        if (this.faceUp) {
-            const imgPath = `pics/cards/${this.suit}_${this.rank}.png`;
-            console.log(imgPath);
-            cardElement.style.backgroundImage = `url('${imgPath}')`;
-            cardElement.classList.add(cardElement.dataset.color);
-        } else {
-            cardElement.classList.add("face-down");
-            cardElement.style.backgroundImage = `url('pics/cards/cardBack.png')`;
-        }
-    
-        return cardElement;
-    }
+      const cardElement = document.createElement("div");
+      cardElement.classList.add("card");
+      cardElement.dataset.suit = this.suit;
+      cardElement.dataset.rank = this.rank;
+      cardElement.dataset.color = this.suit === "hearts" || this.suit === "diamonds" ? "red" : "black";
+      cardElement.draggable = this.faceUp;
+  
+      if (this.faceUp) {
+          const imgPath = `pics/cards/${this.suit}_${this.rank}.png`;
+          console.log("Face-up card image path:", imgPath);
+          cardElement.style.backgroundImage = `url('${imgPath}')`;
+          cardElement.classList.add(cardElement.dataset.color);
+      } else {
+          const cardBackPath = 'pics/cards/cardBack.png';
+          console.log("Face-down card image path:", cardBackPath);
+          cardElement.classList.add("face-down");
+          cardElement.style.backgroundImage = `url('${cardBackPath}') !important`;
+      }
+  
+      return cardElement;
   }
-   
+  
+  }
+    
   // Game state
   const GameState = {
     stock: [],
@@ -375,20 +378,31 @@ class Card {
     renderGame();
   }
    
-  // Handler for clicking face-down cards in tableau
   function onFaceDownCardClick(event) {
     // Flip the card if it's the last in the pile
     const cardElement = event.target;
     const pileElement = cardElement.parentElement;
+  
+    if (!pileElement || !pileElement.id.startsWith("pile-")) {
+      console.error("Invalid pile element or ID:", pileElement);
+      return;
+    }
+  
     const pileIndex = parseInt(pileElement.id.split("-")[1], 10);
     const pile = GameState.tableau[pileIndex];
-   
-    if (pile[pile.length - 1].faceUp === false) {
-      pile[pile.length - 1].faceUp = true;
+  
+    if (!pile || pile.length === 0) {
+      console.error("Invalid or empty pile:", pile);
+      return;
+    }
+  
+    const lastCard = pile[pile.length - 1];
+    if (!lastCard.faceUp) {
+      lastCard.faceUp = true;
       renderGame();
     }
   }
-   
+  
   // Validate tableau move
   function isValidTableauMove(movingCard, targetCard, targetPile) {
     if (targetCard) {
